@@ -1,0 +1,58 @@
+{
+  "name": "cc_assignment2",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Jessica Turner",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesyikaturner/RealmsOfWar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jesyikaturner/RealmsOfWar/issues"
+  },
+  "homepage": "https://github.com/jesyikaturner/RealmsOfWar#readme",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon ./index.js --exec babel-node -e js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^3.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.4",
+    "multer": "^1.4.2",
+    "nodemon": "^1.19.3"
+  },
+  "engines": {
+    "nodejs10": "^10.0.0",
+    "npm": "^6.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "@google-cloud/nodejs-repo-tools": "^3.3.0"
+  },
+  "cloud-repo-tools": {
+    "requiresProjectId": true,
+    "requiresKeyFile": true,
+    "test": {
+      "app": {
+        "requiredEnvVars": [
+          "GCLOUD_STORAGE_BUCKET"
+        ],
+        "msg": "<input type=\"file\" name=\"file\">",
+        "substitutions": "cc_assignment2=$GCLOUD_STORAGE_BUCKET"
+      },
+      "build": {
+        "requiredEnvVars": [
+          "GCLOUD_STORAGE_BUCKET"
+        ]
+      }
+    }
+  }
+}
