@@ -8,57 +8,7 @@
 let currentUser = '';
 let selectedUser = '';
 
-const getData = (route) => {
-  return axios.get(route);
-}
 
-const getDataByToken = (route, token) => {
-  const url = route + token;
-  return axios.get(url);
-}
-
-const sendDataByToken = (route, token, data) => {
-  const url = ''+route+token;
-  return axios.post(url, data);
-}
-
-// listen for auth status changes
-auth.onAuthStateChanged(user => {
-  getData('/quest')
-  .then((response) => {
-    setupQuests(response.data);
-  });
-
-
-  // populate player list
-  if(user) {
-    // load current user
-    const url = '/user/'+auth.currentUser.uid;
-    let quests = '';
-
-    // fill profile with user details
-    //getData(url)
-    //.then((response) => {
-    //  currentUser = response.data;
-    //  selectedUser = response.data;
-    //  setupProfile(currentUser);
-    //});
-
-    // fill quest data
-
-    //getData('/user')
-    //.then((response) => {
-    //  fillUsers(response.data);
-    //});
-  }else {
-    // don't display quests
-    //setupQuests([]);
-    getData('/user')
-    .then((response) => {
-      fillUsers(response.data);
-    });
-  }
-});
 
 //signout
 const logout = document.querySelector('#logout');
