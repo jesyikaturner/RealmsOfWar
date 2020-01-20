@@ -6,11 +6,13 @@ export const UserSchema = new Schema({
     type: String,
     required: true
   },
+  type: String,
   username: String,
   level: Number,
   experience: Number,
   actionPoints: Number,
   totalPlayerKills: Number,
+  guild: String,
   gold: Number,
   unit: [{
     name: String,

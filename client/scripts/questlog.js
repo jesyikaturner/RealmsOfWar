@@ -12,12 +12,16 @@ const convertObjectToString = (data) =>
   return temp;
 }
 
+const setupLevelQuests = (data) =>
+{
+
+}
+
 //setup quests
 const setupQuests = (data) => {
   // logged in
   if(data.length)
   {
-    let tempData = data;
     let html = '';
     for(var i = 0; i < data.length; i++)
     {
@@ -33,8 +37,9 @@ const setupQuests = (data) => {
       `;
       html += li;
     }
-
     questList.innerHTML = html;
+  } else {
+    questList.innerHTML = '<h5 class="center-align">Login to view quests</h5>';
   }
 }
 

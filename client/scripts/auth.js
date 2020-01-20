@@ -5,11 +5,6 @@
   data: data
 });*/
 
-let currentUser = '';
-let selectedUser = '';
-
-
-
 //signout
 const logout = document.querySelector('#logout');
 logout.addEventListener('click', e => {

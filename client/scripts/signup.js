@@ -29,11 +29,9 @@ signupForm.addEventListener('submit', (e) => {
       //console.log(idToken);
       // create user account in mongodb database
       let token = auth.currentUser.uid;
-      console.log(token);
-      let data = newUserData;
+      let data = newUserData.slice();
       data.firebase_token = token;
       data.username = username;
-      console.log(data);
       let url = '/user';
       sendDataByToken('/user','',data);
     }).catch(function(error) {

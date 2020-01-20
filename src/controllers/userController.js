@@ -22,6 +22,23 @@ export const getUsers = (req, res) => {
   });
 };
 
+export const getUsersDetails = (req, res) => {
+  User.find({}, (err, user) => {
+    if(err) {
+      res.send(err);
+    }
+    let newUser = [{
+      firebase_token: user[0].firebase_token,
+      username: user[0].username,
+      level: user[0].level,
+      totalPlayerKills: user[0].totalPlayerKills,
+      guild: user[0].guild
+    }];
+
+    res.json(newUser);
+  });
+};
+
 export const getUserByToken = (req, res) => {
   User.findOne({ firebase_token: req.params.token}, (err, user) => {
     if(err) {

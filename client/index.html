@@ -94,11 +94,6 @@
   <!-- PROFILE MODAL -->
   <div id="modal-picture" class="modal">
     <div class="modal-content center-align" style="border-radius:10px 10px 10px 10px;">
-      <h4>Profile Picture</h4><br />
-      <form action="/upload" method="post" enctype="multipart/form-data">
-      <label for="">Choose a profile pictire:</label>
-      <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
-      <input type="hidden" id="avatar-token" name="avatar-token" value="{{auth.currentUser.ui}}">
       <div>
         <button type="submit" class="btn blue lighten-2 z-depth-0">Submit</button>
       </div>
@@ -165,7 +160,7 @@
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/scripts/shared.js"></script>
-  
+
     <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
@@ -178,6 +173,7 @@
   <script type="text/javascript" src="/scripts/materialize.min.js"></script>
   <script type="text/javascript" src="/scripts/luxon.min.js"></script>
   <script src="/scripts/auth.js"></script>
+  <script src="/scripts/profile.js"></script>
   <script src="/scripts/index.js"></script>
   <script src="/scripts/questLog.js"></script>
   <script src="/scripts/signup.js"></script>

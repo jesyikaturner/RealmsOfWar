@@ -3,20 +3,26 @@ import {
   addNewUser,
   getUserByToken,
   updateUser,
-  deleteUser
+  deleteUser,
+  getUsersDetails
 } from '../controllers/userController';
 
 const userRoutes = (app) => {
   app.route('/user')
   .get((req, res, next) => {
-      // middleware
-      console.log(`Request from: ${req.originalUrl}`)
-      console.log(`Request type: ${req.method}`)
-      next();
-    }, getUsers)
+    // making it all safe
+    console.log(req.headers['accept']);
+    if (!req.headers['accept'].includes('application/json', 0)) {
+      res.redirect('/');
+    } else {
+      next()
+    }
+  }, getUsers)
   // POST endpoint
   .post(addNewUser);
 
+  app.route('/userDetails')
+  .get(getUsersDetails);
 
   app.route('/user/:token')
   // get specific contact

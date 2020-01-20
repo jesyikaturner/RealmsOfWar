@@ -12,11 +12,10 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const {format} = require('util');
 
-require('dotenv').config();
-
 // mongoose connection
-var uriString = process.env.MONGOLAB_BLACK_URI || process.env.MONGO;
 
+require('dotenv').config();
+var uriString = process.env.MONGOLAB_BLACK_URI || process.env.MONGO;
 mongoose.Promise = global.Promise;
 mongoose.connect(uriString, {useNewUrlParser:true, useUnifiedTopology: true},(err, res) => {
   if(err){
