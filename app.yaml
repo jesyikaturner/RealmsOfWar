@@ -1,0 +1,15 @@
+runtime: nodejs10
+env: standard
+
+handlers:
+  - url: /
+    static_files: client/index.html
+    upload: client/index.html
+
+  - url: /(.*)
+    static_files: client/\1
+    upload: client/(.*)
+
+
+env_variables:
+  GCLOUD_STORAGE_BUCKET: cc_assignment2
