@@ -12,7 +12,6 @@ export const UserSchema = new Schema({
   actionPoints: Number,
   totalPlayerKills: Number,
   gold: Number,
-
   unit: [{
     name: String,
     level: Number,

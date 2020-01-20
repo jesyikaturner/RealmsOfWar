@@ -7,7 +7,7 @@ export const QuestSchema = new Schema({
   description: String,
   required: [{
     playerLevel: Number,
-    playerActions: Number,
+    playerActionPoints: Number,
     totalAttack: Number,
     totalUnits: Number
   }],
