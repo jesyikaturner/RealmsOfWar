@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/index.html'));
 });
 
-app.listen(PORT, () =>
+app.listen(process.env.PORT || 8080, () =>
   console.log(`your server is running on ${PORT}`)
 );
 
