@@ -35,6 +35,11 @@ questRoutes(app);
 userRoutes(app);
 fireBaseRoute(app);
 
+
+app.listen(process.env.PORT || 8080, () =>
+  console.log(`your server is running on ${PORT}`)
+);
+
 // Use the built-in express middleware for serving static files from './public'
 app.use(express.static('client'));
 
@@ -42,9 +47,5 @@ app.get('/', (req, res) => {
   //res.sendFile('client/index.html');
   res.sendFile(path.join(__dirname + '/client/index.html'));
 });
-
-app.listen(process.env.PORT || 8080, () =>
-  console.log(`your server is running on ${PORT}`)
-);
 
 module.exports = { app };
