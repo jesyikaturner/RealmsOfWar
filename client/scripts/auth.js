@@ -1,9 +1,84 @@
-/*axios({
-  method: 'post',
-  url: url,
-  dataType: 'jsonp',
-  data: data
-});*/
+import {
+  getData,
+  sendDataByToken
+} from './shared.js';
+
+let auth, firebaseDB;
+let currentUser, selectedUser;
+
+// Getting the config details from server
+axios.get("/firebase")
+.then((res) => {
+  firebase.initializeApp(res.data);
+  auth = firebase.auth();
+  firebaseDB = firebase.firestore();
+
+}).then((res)=> {
+
+  auth.onAuthStateChanged(user => {
+    // populate player list
+    if(user) {
+      // load current user
+      const url = '/user/'+user.uid;
+      getData(url)
+      .then((res) => {
+        currentUser = res.data;
+      })
+
+      getData('/userDetails')
+      .then((response) => {
+        fillUsers(response.data);
+      });
+
+      getData('/quest')
+      .then((response) => {
+        setupQuests(response.data);
+      });
+
+    }else {
+      // don't display quests
+      //setupQuests([]);
+      getData('/userDetails')
+      .then((response) => {
+        fillUsers(response.data);
+      });
+    }
+  });
+
+}).catch((err) => {
+  console.log("Error occurred" + err);
+});
+
+// sign up
+const signupForm = document.querySelector('#signup-form');
+signupForm.addEventListener('submit', (e) => {
+  // prevent page refresh
+  e.preventDefault();
+  // get user info
+  const username = signupForm['signup-username'].value;
+  const email = signupForm['signup-email'].value;
+  const password = signupForm['signup-password'].value;
+
+  // sign up the user
+  auth.createUserWithEmailAndPassword(email, password).then(cred => {
+    const modal = document.querySelector('#modal-signup');
+    M.Modal.getInstance(modal).close();
+    signupForm.reset();
+    }).then( () => {
+    auth.currentUser.getIdToken(/* forceRefresh */ false).then(function(idToken) {
+      //console.log(idToken);
+      // create user account in mongodb database
+      let token = auth.currentUser.uid;
+      let data = newUserData.slice();
+      data.firebase_token = token;
+      data.username = username;
+      let url = '/user';
+      sendDataByToken('/user','',data);
+    }).catch(function(error) {
+      // Handle error
+    });
+  });
+});
 
 //signout
 const logout = document.querySelector('#logout');
@@ -26,4 +101,12 @@ loginForm.addEventListener('submit', (e) => {
     M.Modal.getInstance(modal).close();
     loginForm.reset();
   });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var modals = document.querySelectorAll('.modal');
+  M.Modal.init(modals);
+
+  var items = document.querySelectorAll('.collapsible');
+  M.Collapsible.init(items);
 });

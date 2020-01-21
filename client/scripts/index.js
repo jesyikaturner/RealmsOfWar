@@ -1,3 +1,141 @@
+import {
+  convertObjectToString
+} from './shared.js';
+
+const newUserData =
+{
+    "firebase_token": 'empty',
+    "username": 'empty',
+    "level": 1,
+    "experience": 0,
+    "actionPoints": 20,
+    "totalPlayerKills": 0,
+    "gold": 100
+};
+
+const userList = document.querySelector('.users');
+const questList = document.querySelector('.quests');
+
+const fillUsers = (users) =>
+{
+  console.log(users);
+  let html = '';
+  // sort so most kills are at the top
+  users.sort((a,b) => (a.totalPlayerKills > b.totalPlayerKills ? 1 : -1));
+  const preTable = `<table>`;
+  html+=preTable;
+  for(var i = 0; i < users.length; i++)
+  {
+    const user = users[i];
+    if(!currentUser){
+      const li = `
+          <tr>
+          <td>${user.username}</td>
+          <td><button class="btn blue lighten-2 z-depth-0" onclick='#("${user.firebase_token}")'type="button">View</button></td>
+          </tr>
+      `;
+      html += li;
+    }
+    // make sure it doesn't display the current user
+    else if(user.firebase_token != currentUser.firebase_token){
+      const li = `
+          <tr>
+          <td>${user.username}</td>
+          <td><button class="btn blue lighten-2 z-depth-0" onclick='#("${user.firebase_token}")' type="button">Attack</button></td>
+          <td><button class="btn blue lighten-2 z-depth-0" onclick='#("${user.firebase_token}")'type="button">View</button></td>
+          </tr>
+      `;
+      html += li;
+    }
+  }
+  const postTable = `</table`;
+  html+=postTable;
+
+  userList.innerHTML = html;
+}
+
+
+
+
+
+const setupLevelQuests = (data) =>
+{
+
+}
+
+//setup quests
+const setupQuests = (data) => {
+  // logged in
+  if(data.length)
+  {
+    let html = '';
+    for(var i = 0; i < data.length; i++)
+    {
+      let quest = data[i];
+      let li = `
+          <b>${quest.name}</b></br>
+          ${quest.description}</br>
+          <span>Required Player Level: ${convertObjectToString(quest.required[0])}.</span>
+          <span>Required Action Points: ${convertObjectToString(quest.required[1])}.</span>
+          <span>Required Total Units: ${convertObjectToString(quest.required[3])}.</span>
+          <span>Gold Reward: ${convertObjectToString(quest.reward[0],quest.reward[0])}.</span>
+          <span>Unit Experience Reward: ${convertObjectToString(quest.reward[1],quest.reward[1])}.</span>
+      `;
+      html += li;
+    }
+    questList.innerHTML = html;
+  } else {
+    questList.innerHTML = '<h5 class="center-align">Login to view quests</h5>';
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // const questList = document.querySelector('.quests');
 // const userList = document.querySelector('.users');
 // const profileList = document.querySelector('.profile');
@@ -344,10 +482,4 @@
 //   commentDiv.style.display = "none";
 // }
 //
-document.addEventListener('DOMContentLoaded', function() {
-  var modals = document.querySelectorAll('.modal');
-  M.Modal.init(modals);
 
-  var items = document.querySelectorAll('.collapsible');
-  M.Collapsible.init(items);
-});
