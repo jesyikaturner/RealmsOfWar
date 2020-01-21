@@ -25,6 +25,19 @@ const questRoutes = (app) => {
   .put(updateQuest)
   // delete request
   .delete(deleteQuest);
+
+  app.route('/performQuest')
+  .get((req, res) => {
+    console.log(req);
+    res.json(req);
+  })
+  .post((req, res) => {
+    console.log(req);
+    res.json(req);
+  })
+
 }
+
+
 
 export default questRoutes;

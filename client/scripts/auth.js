@@ -3,8 +3,15 @@ import {
   sendDataByToken
 } from './shared.js';
 
+import {
+  setupQuests
+} from './questlog.js';
+
+import {
+  fillUsers
+} from './profile.js';
+
 let auth, firebaseDB;
-let currentUser, selectedUser;
 
 // Getting the config details from server
 axios.get("/firebase")
@@ -19,20 +26,22 @@ axios.get("/firebase")
     // populate player list
     if(user) {
       // load current user
-      const url = '/user/'+user.uid;
-      getData(url)
-      .then((res) => {
-        currentUser = res.data;
-      })
+      //const url = '/user/'+user.uid;
+      //getData(url)
+      //.then((res) => {
+      //  currentUser = res.data;
+      //})
 
+      // getting list of users
       getData('/userDetails')
       .then((response) => {
-        fillUsers(response.data);
+        fillUsers(user,response.data);
       });
 
+      // setting up quests
       getData('/quest')
       .then((response) => {
-        setupQuests(response.data);
+        setupQuests(user, response.data);
       });
 
     }else {

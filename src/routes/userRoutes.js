@@ -11,7 +11,6 @@ const userRoutes = (app) => {
   app.route('/user')
   .get((req, res, next) => {
     // making it all safe
-    console.log(req.headers['accept']);
     if (!req.headers['accept'].includes('application/json', 0)) {
       res.redirect('/');
     } else {
