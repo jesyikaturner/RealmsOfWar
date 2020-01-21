@@ -21,3 +21,6 @@
 5. To run project run:
 
         npm run dev
+
+## Setting up on Heroku
+
