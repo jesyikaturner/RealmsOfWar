@@ -36,12 +36,21 @@ userRoutes(app);
 fireBaseRoute(app);
 
 // Use the built-in express middleware for serving static files from './public'
-app.use(express.static('client'));
+//app.use(express.static('client'));
 
-app.get('/', (req, res) => {
-  res.sendFile('client/index.html');
-  //res.sendFile(path.join(__dirname + '/client/index.html'));
+// Serve static files from React app
+app.use(express.static(path.join(__dirname, 'client')));
+
+// Catchall handler: for any request that doesnt match above
+// send back React's html file.
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname + '/client/index.html'));
 });
+
+//app.get('/', (req, res) => {
+//  res.sendFile('client/index.html');
+//  //res.sendFile(path.join(__dirname + '/client/index.html'));
+//});
 
 app.listen(process.env.PORT || 8080, () =>
   console.log(`your server is running on ${PORT}`)
