@@ -30,7 +30,7 @@ export const setupQuests = (user, data) => {
         <span>Required Total Units: ${convertObjectToString(quest.required[3])}.</span>
         <span>Gold Reward: ${convertObjectToString(quest.reward[0],quest.reward[0])}.</span>
         <span>Unit Experience Reward: ${convertObjectToString(quest.reward[1],quest.reward[1])}.</span>
-        <button id= "${quest.questID}" class="btn blue lighten-2 z-depth-0">Start Quest</button>
+        <button id= "${quest.id}" class="btn blue lighten-2 z-depth-0">Start Quest</button>
       `;
       html += li;
     }
@@ -42,6 +42,7 @@ export const setupQuests = (user, data) => {
 
 export const doQuest = (user, questID) =>
 {
+  console.log(questID);
     let data = [{
         token: user,
         qid: questID

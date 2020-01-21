@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import questRoutes from './src/routes/questRoutes';
 import userRoutes from './src/routes/userRoutes';
 import fireBaseRoute from './src/routes/fireBaseRoute';
+import eventRoutes from './src/routes/eventRoutes';
 import path from 'path';
 
 const app = express();
@@ -34,6 +35,7 @@ app.use(bodyParser.json());
 questRoutes(app);
 userRoutes(app);
 fireBaseRoute(app);
+eventRoutes(app);
 
 // Use the built-in express middleware for serving static files from './public'
 app.use(express.static('client'));

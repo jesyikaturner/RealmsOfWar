@@ -50,7 +50,7 @@ export const getUserByToken = (req, res) => {
 
 export const updateUser = (req, res) => {
   let data = req.body;
-  let currentUser = User.findOne({firebase_token: req.params.token});
+  //let currentUser = User.findOne({firebase_token: req.params.token});
   if(data.messages != null)
   {
     // if the data sent is a message then just update the message

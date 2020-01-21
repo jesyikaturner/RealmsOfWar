@@ -18,12 +18,8 @@ export const UserSchema = new Schema({
     name: String,
     level: Number,
     experience: Number,
-    attributes: [{
-      health: Number,
-      attack: Number,
-      defence: Number,
-      speed: Number
-    }]
+    health: Number,
+    attackPower: Number
   }],
   inventory: [{
     name: String,
