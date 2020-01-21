@@ -14,7 +14,7 @@
   "homepage": "https://github.com/jesyikaturner/RealmsOfWar#readme",
   "main": "index.js",
   "scripts": {
-    "heroku-postbuild": "node index.js",
+    "heroku-postbuild": "node -r  esm index.js",
     "start": "node index.js",
     "dev": "nodemon ./index.js --exec babel-node -e js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,6 +23,7 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "mongoose": "^5.7.5",
     "nodemon": "^1.19.3"
