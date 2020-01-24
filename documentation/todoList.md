@@ -7,6 +7,8 @@
 * Player can select what units to send on quest
 * User Profile and Profile messages
 * Profile message deletion
+* Automated test cases
+* Account deletion
 
 
 ## Art To Do List

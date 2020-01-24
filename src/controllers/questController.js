@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 import { QuestSchema } from '../models/questModel';
+// default collection name defined by Mongoose is lower-cased, pluralised model name
+// ie 'Quest' becomes quests
 const Quest = mongoose.model('Quest', QuestSchema);
 
 export const getQuests = (req, res) => {

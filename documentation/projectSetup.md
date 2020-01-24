@@ -1,6 +1,6 @@
 ## Run Local Development Build
 1. Install NodeJS and npm
-2. Setup MongoDB and Firebase
+2. Setup MongoDB and Firebase 
 3. Create Collections: users, quests
 4. Download project and unzip.
 5. Setup .env file in project root. Current structure is:
