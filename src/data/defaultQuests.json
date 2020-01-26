@@ -1,0 +1,49 @@
+[
+    {
+        "id": 1,
+        "name": "",
+        "description": "",
+        "required": [{
+            "playerLevel": 1,
+            "playerActionPoints": 1,
+            "totalAttack": 1,
+            "totalUnits": 1
+        }],
+        "reward": [{
+            "gold": 1,
+            "totalUnitExperience": 1
+        }]
+    },
+    
+    {
+        "id": 1,
+        "name": "",
+        "description": "",
+        "required": [{
+            "playerLevel": 1,
+            "playerActionPoints": 1,
+            "totalAttack": 1,
+            "totalUnits": 1
+        }],
+        "reward": [{
+            "gold": 1,
+            "totalUnitExperience": 1
+        }]
+    },
+
+    {
+        "id": 1,
+        "name": "",
+        "description": "",
+        "required": [{
+            "playerLevel": 1,
+            "playerActionPoints": 1,
+            "totalAttack": 1,
+            "totalUnits": 1
+        }],
+        "reward": [{
+            "gold": 1,
+            "totalUnitExperience": 1
+        }]
+    }
+]

@@ -5,12 +5,12 @@
 4. Download project and unzip.
 5. Setup .env file in project root. Current structure is:
 
-        MONGO: 'mongodb url'
+        MONGO='mongodb url'
         FB_APIKEY='firebase apiKey'
         FB_AUTHDOMAIN='firebase authDomain'
         FB_DBURL='firebase databaseURL'
         FB_PID='firebase projectId'
-        FB_SB= 'firebase storageBucket'
+        FB_SB='firebase storageBucket'
         FB_MSI='firebase messagingSenderId'
         FB_AID='firebase appId'
         FB_MID='firebase measurementId'

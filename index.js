@@ -9,6 +9,8 @@ import fireBaseRoute from './src/routes/fireBaseRoute';
 import eventRoutes from './src/routes/eventRoutes';
 import path from 'path';
 
+import quests from './src/data/defaultQuests';
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 const {format} = require('util');
@@ -37,11 +39,12 @@ userRoutes(app);
 fireBaseRoute(app);
 eventRoutes(app);
 
-// Use the built-in express middleware for serving static files from './public'
+console.log(quests);
+
+// Use the built-in express middleware for serving static files
 app.use(express.static('client'));
 
 app.get('/', (req, res) => {
-  //res.sendFile('client/index.html');
   res.sendFile(path.join(__dirname + '/client/index.html'));
 });
 
