@@ -1,6 +1,5 @@
 import {
-    sendDataByToken,
-    convertObjectToString
+    sendDataByToken
   } from './shared.js';
 
 const questList = document.querySelector('.quests');

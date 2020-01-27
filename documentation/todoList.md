@@ -9,6 +9,8 @@
 * Profile message deletion
 * Automated test cases
 * Account deletion
+* Items and Units Models and Controllers
+* Default Quest, Items, Units list
 
 
 ## Art To Do List
