@@ -7,8 +7,7 @@ export const sendDataByToken = (route, token, data) => {
   return axios.post(url, data);
 }
 
-// for some reason mongodb has arrays of objects, so a string of 10 is [0][0] = 1, [0][1] = 0.
-// this function will convert it into a string
+// this function will convert an array of objects to a readable string
 export const convertObjectToString = (data) =>
 {
   let temp = '';

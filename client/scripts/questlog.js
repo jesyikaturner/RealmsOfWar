@@ -25,12 +25,13 @@ export const setupQuests = (user, data) => {
       let li = `
         <b>${quest.name}</b></br>
         ${quest.description}</br>
-        <span>Required Player Level: ${convertObjectToString(quest.required[0])}.</span>
-        <span>Required Action Points: ${convertObjectToString(quest.required[1])}.</span>
-        <span>Required Total Units: ${convertObjectToString(quest.required[3])}.</span>
-        <span>Gold Reward: ${convertObjectToString(quest.reward[0],quest.reward[0])}.</span>
-        <span>Unit Experience Reward: ${convertObjectToString(quest.reward[1],quest.reward[1])}.</span>
+        <span>Required Player Level: ${quest.required[0].playerLevel}.</span>
+        <span>Required Action Points: ${quest.required[0].playerActionPoints}.</span>
+        <span>Required Total Units: ${quest.required[0].totalUnits}.</span>
+        <span>Gold Reward: ${quest.reward[0].gold}.</span>
+        <span>Unit Experience Reward: ${quest.reward[0].totalUnitExperience}.</span>
         <button id= "${quest.id}" class="btn blue lighten-2 z-depth-0">Start Quest</button>
+        <br>
       `;
       html += li;
     }

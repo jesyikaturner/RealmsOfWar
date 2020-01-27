@@ -10,11 +10,11 @@ import userRoutes from './src/routes/userRoutes';
 import fireBaseRoute from './src/routes/fireBaseRoute';
 import eventRoutes from './src/routes/eventRoutes';
 
-import setupDatabase from './src/scripts/setupDatabase';
+import setupDatabase from './src/controllers/setupController';
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-const {format} = require('util');
+//const {format} = require('util');
 
 // mongoose connection
 // IMPORTANT!: Make sure to have env file set up! Check documentation!
