@@ -27,6 +27,7 @@ export const getQuestById = (req, res) => {
 // admin only route to create new quests
 export const addNewQuest = (req, res) => {
   let newQuest = new Quest(req.body);
+  // TODO: check to see if it doesnt exist then add to database
   newQuest.save((err, quest) => {
     if(err){
       res.send(err);

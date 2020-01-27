@@ -9,7 +9,7 @@ import fireBaseRoute from './src/routes/fireBaseRoute';
 import eventRoutes from './src/routes/eventRoutes';
 import path from 'path';
 
-import quests from './src/data/defaultQuests';
+import setupDatabase from './src/scripts/setupDatabase';
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -39,7 +39,7 @@ userRoutes(app);
 fireBaseRoute(app);
 eventRoutes(app);
 
-console.log(quests);
+setupDatabase();
 
 // Use the built-in express middleware for serving static files
 app.use(express.static('client'));
