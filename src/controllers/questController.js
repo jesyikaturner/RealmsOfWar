@@ -27,13 +27,25 @@ export const getQuestById = (req, res) => {
 // admin only route to create new quests
 export const addNewQuest = (req, res) => {
   let newQuest = new Quest(req.body);
-  // TODO: check to see if it doesnt exist then add to database
-  newQuest.save((err, quest) => {
-    if(err){
-      res.send(err);
+  newQuest.findOne({id: req.params.id}, (err, quest) => {
+    if(err)
+    {
+      newQuest.save((err, quest) => {
+        if(err){
+          res.send(err);
+        }
+        res.json(quest);
+      });
+      console.log("Quest already exists!");
     }
-    res.json(quest);
   });
+  // TODO: check to see if it doesnt exist then add to database
+  // newQuest.save((err, quest) => {
+  //   if(err){
+  //     res.send(err);
+  //   }
+  //   res.json(quest);
+  // });
 };
 
 //admin only route to update quests

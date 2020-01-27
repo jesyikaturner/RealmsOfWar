@@ -1,49 +1,33 @@
 [
     {
         "id": 1,
-        "name": "",
-        "description": "",
+        "name": "Kill the bandits!",
+        "description": "Bandits have attacked. Protect the people!",
         "required": [{
             "playerLevel": 1,
-            "playerActionPoints": 1,
-            "totalAttack": 1,
-            "totalUnits": 1
+            "playerActionPoints": 2,
+            "totalAttack": 5,
+            "totalUnits": 3
         }],
         "reward": [{
-            "gold": 1,
-            "totalUnitExperience": 1
+            "gold": 10,
+            "totalUnitExperience": 20
         }]
     },
     
     {
-        "id": 1,
-        "name": "",
-        "description": "",
+        "id": 2,
+        "name": "Save the cat!",
+        "description": "Little Timmy's cat has been catnapped by Treants! Defeat the Treants and save the kitty!",
         "required": [{
-            "playerLevel": 1,
-            "playerActionPoints": 1,
-            "totalAttack": 1,
-            "totalUnits": 1
+            "playerLevel": 2,
+            "playerActionPoints": 4,
+            "totalAttack": 10,
+            "totalUnits": 3
         }],
         "reward": [{
-            "gold": 1,
-            "totalUnitExperience": 1
-        }]
-    },
-
-    {
-        "id": 1,
-        "name": "",
-        "description": "",
-        "required": [{
-            "playerLevel": 1,
-            "playerActionPoints": 1,
-            "totalAttack": 1,
-            "totalUnits": 1
-        }],
-        "reward": [{
-            "gold": 1,
-            "totalUnitExperience": 1
+            "gold": 20,
+            "totalUnitExperience": 40
         }]
     }
 ]

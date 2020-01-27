@@ -3,11 +3,12 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import path from 'path';
+
 import questRoutes from './src/routes/questRoutes';
 import userRoutes from './src/routes/userRoutes';
 import fireBaseRoute from './src/routes/fireBaseRoute';
 import eventRoutes from './src/routes/eventRoutes';
-import path from 'path';
 
 import setupDatabase from './src/scripts/setupDatabase';
 
@@ -16,7 +17,7 @@ const PORT = process.env.PORT || 8080;
 const {format} = require('util');
 
 // mongoose connection
-
+// IMPORTANT!: Make sure to have env file set up! Check documentation!
 require('dotenv').config();
 var uriString = process.env.MONGOLAB_BLACK_URI || process.env.MONGO;
 mongoose.Promise = global.Promise;
