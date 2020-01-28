@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 8080;
 // mongoose connection
 // IMPORTANT!: Make sure to have env file set up! Check documentation!
 require('dotenv').config();
-var uriString = process.env.MONGOLAB_BLACK_URI || process.env.MONGO;
+let uriString = process.env.MONGOLAB_BLACK_URI || process.env.MONGO;
 mongoose.Promise = global.Promise;
 mongoose.connect(uriString, {useNewUrlParser:true, useUnifiedTopology: true},(err, res) => {
   if(err){
