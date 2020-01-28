@@ -6,5 +6,8 @@ export const UnitSchema = new Schema({
     level: Number,
     experience: Number,
     health: Number,
-    attackPower: Number
+    attackPower: Number,
+    defence: Number,
+    buyPrice: Number,
+    sellPrice: Number
   });

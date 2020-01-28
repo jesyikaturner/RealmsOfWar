@@ -19,11 +19,15 @@ export const UserSchema = new Schema({
     level: Number,
     experience: Number,
     health: Number,
-    attackPower: Number
+    attackPower: Number,
+    defence: Number,
+    sellPrice: Number
   }],
   inventory: [{
     name: String,
-    buff: Number
+    description: String,
+    buff: Number,
+    sellPrice: Number
   }],
   profileMessages: [{
       from: String,
