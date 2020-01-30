@@ -11,11 +11,8 @@ import fireBaseRoute from './src/routes/fireBaseRoute';
 import eventRoutes from './src/routes/eventRoutes';
 import serverTimeRoute from './src/routes/serverTimeRoute';
 
-import setupDatabase from './src/controllers/setupController';
-
 const app = express();
 const PORT = process.env.PORT || 8080;
-//const {format} = require('util');
 
 // mongoose connection
 // IMPORTANT!: Make sure to have env file set up! Check documentation!
@@ -41,8 +38,6 @@ userRoutes(app);
 fireBaseRoute(app);
 eventRoutes(app);
 serverTimeRoute(app);
-
-setupDatabase();
 
 // Use the built-in express middleware for serving static files
 app.use(express.static('client'));

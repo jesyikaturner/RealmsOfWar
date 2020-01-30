@@ -1,7 +1,6 @@
 ## Run Local Development Build
 1. Install NodeJS and npm
 2. Setup MongoDB and Firebase 
-3. Create Collections: users, quests
 4. Download project and unzip.
 5. Setup .env file in project root. Current structure is:
 
@@ -19,7 +18,11 @@
 
         npm install
 
-7. To run project run:
+7. To setup default values into database, run:
+
+        npm run database
+
+7. To run project:
 
         npm run dev
 
