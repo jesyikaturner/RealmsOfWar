@@ -7,7 +7,6 @@ import path from 'path';
 
 import questRoutes from './src/routes/questRoutes';
 import userRoutes from './src/routes/userRoutes';
-import fireBaseRoute from './src/routes/fireBaseRoute';
 import eventRoutes from './src/routes/eventRoutes';
 import serverTimeRoute from './src/routes/serverTimeRoute';
 
@@ -35,7 +34,6 @@ app.use(bodyParser.json());
 // database routes
 questRoutes(app);
 userRoutes(app);
-fireBaseRoute(app);
 eventRoutes(app);
 serverTimeRoute(app);
 
